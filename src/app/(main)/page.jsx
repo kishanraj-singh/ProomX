@@ -1,7 +1,3 @@
-import GetInTouch from "@/components/main/cantact-section";
-import MostlovedSection from "@/components/main/most-loved-section";
-import SearchBox from "@/components/main/search-box";
-import ThemeToggleButton from "@/components/main/theme-toggle-button";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";

@@ -18,8 +18,8 @@ export default function Footer() {
             />
           </Link>
           <p className="text-muted-foreground">
-            ProomX provides curated Library of premium-quality Free prompts,
-            designed to support creativity and productivity.
+            ProomX is an AI prompt library offering curated prompts for chat,
+            image generation, coding, and productivity.
           </p>
           <Separator className="my-4" />
           <p className="text-muted-foreground">Made with ❤️ by ResNeed</p>
@@ -27,19 +27,20 @@ export default function Footer() {
         <br />
         <div>
           <h2 className="text-md font-semibold">Top Categories</h2>
-          <Link href="#">category one</Link>
-          <Link href="#">category two</Link>
-          <Link href="#">category three</Link>
-          <Link href="#">category four</Link>
+          <Link href="/writing-content">Writing & Content</Link>
+          <Link href="/marketing-sales">Marketing & Sales</Link>
+          <Link href="/coding-development">Coding & Development</Link>
+          <Link href="/design-image">Design & Image</Link>
+          <Link href="/business-productivity">Business & Productivity</Link>
         </div>
         <br />
         <div>
           <h2 className="text-md font-semibold">Info & Legal</h2>
           <Link href="/disclaimer ">Disclaimer</Link>
           <Link href="/privacy-policy">Privacy Policy</Link>
-          <Link href="/terms">Terms</Link>
-          <Link href="/about">About</Link>
-          <Link href="/sitemap.xml">Sitemap</Link>
+          <Link href="/terms">Terms of Use</Link>
+          <Link href="/about">About ProomX</Link>
+          <Link href="/contact">Contact</Link>
         </div>
       </div>
       <Separator className="my-8" />

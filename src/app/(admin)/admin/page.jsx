@@ -39,7 +39,7 @@ export default function Page() {
                 <h1 className="text-base font-medium px-1">
                   {adminProfile ? adminProfile.email : "loading..."}
                 </h1>
-                <h1 className="text-[13px] text-gray-400 font-medium px-1">
+                <h1 className="text-[13px] text-muted-foreground font-medium px-1">
                   {adminProfile ? adminProfile.uid : "loading..."}
                 </h1>
               </div>

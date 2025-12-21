@@ -26,7 +26,7 @@ export default function ShareBar() {
 
   return (
     <div className="w-full flex justify-center items-center gap-2.5 mb-8">
-      <p className="text-sm text-gray-400">Share:</p>
+      <p className="text-sm text-muted-foreground">Share:</p>
       <div className="flex">
         <Tooltip>
           <TooltipTrigger asChild>
@@ -34,7 +34,10 @@ export default function ShareBar() {
               href={`https://www.facebook.com/sharer/sharer.php?u=${url}`}
               target="_blank"
             >
-              <Button variant="ghost" className="[&_button]:text-gray-400">
+              <Button
+                variant="ghost"
+                className="[&_button]:text-muted-foreground"
+              >
                 <FacebookIcon />
               </Button>
             </Link>

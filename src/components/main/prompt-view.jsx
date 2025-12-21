@@ -10,7 +10,7 @@ import {
 import { Button } from "../ui/button";
 import { toast } from "sonner";
 
-export default function TextView({ copyText }) {
+export default function PromptView({ copyText }) {
   const copyToClipboard = async () => {
     try {
       await navigator.clipboard.writeText(copyText);
@@ -22,8 +22,8 @@ export default function TextView({ copyText }) {
 
   return (
     <Card className="w-full p-0 overflow-hidden rounded-md border-0  mt-2.5">
-      <div className="flex items-center justify-between border-b px-4 py-2 text-gray-300">
-        <p>Copy Text</p>
+      <div className="flex items-center justify-between border-b px-4 py-2 text-primary">
+        <p>Free Prompt</p>
         <Tooltip>
           <TooltipTrigger asChild>
             <Button variant="ghost" onClick={copyToClipboard}>
@@ -35,7 +35,7 @@ export default function TextView({ copyText }) {
           </TooltipContent>
         </Tooltip>
       </div>
-      <div className="w-full px-4 pb-4 text-gray-300">
+      <div className="w-full px-4 pb-4 text-primary">
         <code className="text-[15px] whitespace-pre-wrap">{copyText}</code>
       </div>
     </Card>

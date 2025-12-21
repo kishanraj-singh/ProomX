@@ -20,16 +20,18 @@ import {
   SheetFooter,
 } from "@/components/ui/sheet";
 import {
+  Briefcase,
   CircleAlert,
-  FolderCode,
+  Code,
+  FileText,
   GlobeLock,
   Images,
+  Mail,
   MenuIcon,
   ReceiptText,
   Search,
-  TextAlignCenter,
+  TrendingUp,
   TriangleAlert,
-  Video,
   X,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -55,7 +57,7 @@ export default function Header() {
 
   return (
     <>
-      <div className="w-full h-[80px] flex px-[3%] py-2 px-[3%] items-center justify-between fixed top-0 left-0 right-0 backdrop-blur-xl z-10">
+      <div className="w-full h-[80px] flex px-[3%] py-2 px-[3%] items-center justify-between fixed top-0 left-0 right-0 backdrop-blur-xl z-10 border-b">
         <div className="flex items-center gap-2">
           <div className="flex items-center [@media(min-width:820px)]:hidden">
             <Sheet open={menuSheetOpen} onOpenChange={setMenuSheetOpen}>
@@ -89,28 +91,34 @@ export default function Header() {
                   className="w-full flex flex-col gap-2.5 px-2.5"
                   onClick={() => setMenuSheetOpen(false)}
                 >
-                  <Link href="#">
+                  <Link href="writing-content">
                     <Button variant="ghost">
-                      <FolderCode />
-                      category one
+                      <FileText />
+                      Writing & Content
                     </Button>
                   </Link>
-                  <Link href="#">
+                  <Link href="marketing-sales">
+                    <Button variant="ghost">
+                      <TrendingUp />
+                      Marketing & Sales
+                    </Button>
+                  </Link>
+                  <Link href="coding-development">
+                    <Button variant="ghost">
+                      <Code />
+                      Coding & Development
+                    </Button>
+                  </Link>
+                  <Link href="design-image">
                     <Button variant="ghost">
                       <Images />
-                      category two
+                      Design & Image
                     </Button>
                   </Link>
-                  <Link href="#">
+                  <Link href="business-productivity">
                     <Button variant="ghost">
-                      <TextAlignCenter />
-                      category three
-                    </Button>
-                  </Link>
-                  <Link href="#">
-                    <Button variant="ghost">
-                      <Video />
-                      category four
+                      <Briefcase />
+                      Business & Productivity
                     </Button>
                   </Link>
 
@@ -136,10 +144,15 @@ export default function Header() {
                       <CircleAlert /> About
                     </Button>
                   </Link>
+                  <Link href="/contact">
+                    <Button variant="ghost">
+                      <Mail /> Contact
+                    </Button>
+                  </Link>
                 </div>
                 <SheetFooter>
                   <p className="text-sm text-muted-foreground">
-                    &copy; 2025 ProomX, Made with ❤️ by ResNeed
+                    &copy; 2025 ProomX, All rights reserved.
                   </p>
                 </SheetFooter>
               </SheetContent>
@@ -165,24 +178,34 @@ export default function Header() {
                     Explore
                   </NavigationMenuTrigger>
                   <NavigationMenuContent className="grid">
-                    <Link href="#">
-                      <Button variant="ghost" className="w-full justify-start">
-                        category one
+                    <Link href="writing-content">
+                      <Button variant="ghost">
+                        <FileText />
+                        Writing & Content
                       </Button>
                     </Link>
-                    <Link href="#">
-                      <Button variant="ghost" className="w-full justify-start">
-                        category two
+                    <Link href="marketing-sales">
+                      <Button variant="ghost">
+                        <TrendingUp />
+                        Marketing & Sales
                       </Button>
                     </Link>
-                    <Link href="#">
-                      <Button variant="ghost" className="w-full justify-start">
-                        category three
+                    <Link href="coding-development">
+                      <Button variant="ghost">
+                        <Code />
+                        Coding & Development
                       </Button>
                     </Link>
-                    <Link href="#">
-                      <Button variant="ghost" className="w-full justify-start">
-                        category four
+                    <Link href="design-image">
+                      <Button variant="ghost">
+                        <Images />
+                        Design & Image
+                      </Button>
+                    </Link>
+                    <Link href="business-productivity">
+                      <Button variant="ghost">
+                        <Briefcase />
+                        Business & Productivity
                       </Button>
                     </Link>
                   </NavigationMenuContent>

@@ -24,10 +24,10 @@ export default function BundleBox({ bundle }) {
         <div className="px-2 flex flex-col gap-2 mt-6">
           <h2 className="text-xl line-clamp-3">{bundleData.title}</h2>
           <div className="grid gap-1">
-            <p className="text-gray-400 line-clamp-3">
+            <p className="text-muted-foreground line-clamp-3">
               {bundleData.description}
             </p>
-            <p className="text-[12px] text-gray-400">
+            <p className="text-[12px] text-muted-foreground">
               Last Updated: {generateTimeAgo(bundleData.lastUpdate.toDate())}{" "}
               &bull; {formatNumber(bundleData.views)} views
             </p>

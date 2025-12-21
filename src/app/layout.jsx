@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <body className={interFont.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <main className="w-full min-h-[100dvh] flex flex-col overflow-x-hidden pt-[80px]">
+          <main className="w-full min-h-[100dvh] flex flex-col overflow-x-hidden pt-[100px]">
             <Header />
             <div className="w-full h-full flex flex-col flex-1 overflow-x-hidden">
               {children}

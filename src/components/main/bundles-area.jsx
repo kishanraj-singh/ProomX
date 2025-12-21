@@ -11,7 +11,7 @@ import {
   where,
 } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import BundleBox from "./BundleBox";
+import BundleBox from "./bundle-box";
 import { Button } from "../ui/button";
 import { Skeleton } from "../ui/skeleton";
 import { Spinner } from "../ui/spinner";

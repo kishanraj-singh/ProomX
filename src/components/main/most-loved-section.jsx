@@ -27,7 +27,7 @@ export default function MostlovedSection() {
       after:content-[''] after:h-full after:absolute after:top-0 after:right-0 after:w-[5%] after:bg-gradient-to-l after:from-background after:to-[#00000000]"
       >
         <div className="flex lg:justify-center items-center gap-[10px] overflow-x-auto whitespace-nowrap scroll-smooth py-[10px] px-[5%] hide-scrollbar">
-          <p className="text-sm text-gray-400 tilt">Most loved:</p>
+          <p className="text-sm text-muted-foreground tilt">Most loved:</p>
           {category.map((fOption, index) => (
             <Link key={index} href={`/search/${fOption.toLowerCase()}`}>
               <Button

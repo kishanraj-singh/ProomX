@@ -128,7 +128,7 @@
 html,
 body {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 100px;
 }
 .hide-scrollbar::-webkit-scrollbar {
   display: none;

@@ -9,7 +9,10 @@ export default function ScrollTopButton() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 100) {
+      const scrollTop = window.scrollY;
+      const windowHight = window.innerHeight;
+      const documentHight = document.documentElement.scrollHeight;
+      if (scrollTop > 100 && scrollTop + windowHight <= documentHight - 10) {
         setShowButton(true);
       } else {
         setShowButton(false);

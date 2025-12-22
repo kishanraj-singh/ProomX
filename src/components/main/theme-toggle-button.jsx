@@ -13,10 +13,12 @@ export default function ThemeToggleButton() {
 
   return (
     <Button
-      variant="secondary"
+      variant="outline"
+      className="rounded-full w-fit"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
-      {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+      <SunIcon />
+      <MoonIcon />
     </Button>
   );
 }

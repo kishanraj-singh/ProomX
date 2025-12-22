@@ -1,5 +1,5 @@
 "use client";
-//imports
+
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -28,14 +28,11 @@ import { Spinner } from "@/components/ui/spinner";
 import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
-  //variables
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [processing, setProcessing] = useState(false);
 
-  //functions
-  //handle signin
   const handleLogIn = async (event) => {
     event.preventDefault();
     try {
@@ -54,7 +51,7 @@ export default function LoginPage() {
       setProcessing(false);
     }
   };
-  //
+
   return (
     <div className="min-h-[100dvh] flex-1 flex flex-col items-center justify-center p-6 sm:p-10">
       <Card className="w-[300px] md:w-[350px]">

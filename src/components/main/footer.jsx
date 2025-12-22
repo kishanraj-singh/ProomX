@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Separator } from "../ui/separator";
+import ThemeToggleButton from "./theme-toggle-button";
 
 export default function Footer() {
   return (
@@ -44,10 +45,11 @@ export default function Footer() {
         </div>
       </div>
       <Separator className="my-8" />
-      <div className="w-full flex justify-center">
+      <div className="w-full flex justify-center items-center gap-4">
         <p className="text-muted-foreground">
           &copy; 2025 ProomX, All rights reserved.
         </p>
+        <ThemeToggleButton />
       </div>
     </footer>
   );

@@ -84,7 +84,7 @@ export default async function slug({ params }) {
         {/*collection items nav*/}
         <div className="w-full md:w-[28%] h-full p-4">
           <h2 className="text-2xl text-primary">collection Items</h2>
-          <div className="px-2 py-5 flex flex-col [&_a]:text-[15px] [&_a]:text-gray-400 [&_a]:border-l [&_a]:px-5 [&_a]:py-2">
+          <div className="px-2 py-5 flex flex-col [&_a]:text-[15px] [&_a]:text-muted-foreground [&_a]:border-l [&_a]:px-5 [&_a]:py-2">
             {bundleItems.map((bundleItem, index) => (
               <Link
                 key={index}
@@ -113,7 +113,7 @@ export default async function slug({ params }) {
             <h1 className="text-[26px] md:text-[30px] lg:text-[34px] font-semibold leading-tight">
               {bundleData.title}
             </h1>
-            <h2 className="text-[16px] md:text-[18px] text-gray-400">
+            <h2 className="text-[16px] md:text-[18px] text-muted-foreground">
               {bundleData.description}
             </h2>
           </div>
@@ -155,7 +155,7 @@ export default async function slug({ params }) {
                   </div>
                 )}
 
-                <h2 className="text-[16px] md:text-[18px] text-gray-400 whitespace-pre-wrap">
+                <h2 className="text-[16px] md:text-[18px] text-muted-foreground whitespace-pre-wrap">
                   {bundleItemData.description}
                 </h2>
 

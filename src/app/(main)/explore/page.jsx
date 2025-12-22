@@ -15,12 +15,12 @@ export default async function Category({ params }) {
           <h1 className="text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] font-semibold lg:font-bold text-center leading-tight">
             Explore 500+
           </h1>
-          <h2 className="w-full md:text-lg text-gray-400 text-center">
+          <h2 className="w-full md:text-lg text-muted-foreground text-center">
             Top new Prompt Bundles
           </h2>
           <Link
             href="mailto:support@resneed.online"
-            className="text-[15px] md:text-md text-gray-400 text-center"
+            className="text-[15px] md:text-md text-muted-foreground text-center"
           >
             Need Help? <span className="underline">Contact</span>
           </Link>

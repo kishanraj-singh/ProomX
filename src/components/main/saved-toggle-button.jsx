@@ -6,27 +6,27 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Button } from "../ui/button";
-import { Heart } from "lucide-react";
+import { BookmarkIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
-export default function AddToWishlistButton({ bundleId }) {
+export default function SavedToggleButton({ bundleId }) {
   const [saved, setSaved] = useState(false);
 
   useEffect(() => {
-    const savedItems = JSON.parse(localStorage.getItem("wishlist")) || [];
+    const savedItems = JSON.parse(localStorage.getItem("saved")) || [];
     setSaved(savedItems.includes(bundleId));
   }, [bundleId]);
 
-  const toggleWishlist = () => {
-    let savedItems = JSON.parse(localStorage.getItem("wishlist")) || [];
+  const toggleSaved = () => {
+    let savedItems = JSON.parse(localStorage.getItem("saved")) || [];
     if (saved) {
       savedItems = savedItems.filter((item) => item != bundleId);
     } else {
       savedItems.push(bundleId);
-      toast.success("collection added to wistlist");
+      toast.success("Bundle Added to Saved");
     }
-    localStorage.setItem("wishlist", JSON.stringify(savedItems));
+    localStorage.setItem("saved", JSON.stringify(savedItems));
     setSaved(!saved);
   };
 
@@ -35,17 +35,18 @@ export default function AddToWishlistButton({ bundleId }) {
       <TooltipTrigger asChild>
         <Button
           variant="ghost"
-          className="absolute top-2.5 right-2.5 bg-secondary/25 hover:bg-secondary/50 z-1"
-          onClick={toggleWishlist}
+          className="absolute top-2.5 right-2.5 bg-white/20 hover:bg-white/15 z-1"
+          onClick={toggleSaved}
         >
-          <Heart
-            fill={saved ? "red" : "transparent"}
-            color={saved ? "red" : "#fff"}
+          <BookmarkIcon
+            className={`${
+              saved ? "text-blue-500 fill-blue-500" : "text-white"
+            }`}
           />
         </Button>
       </TooltipTrigger>
       <TooltipContent>
-        <p>{saved ? "Remove to Wishlist" : "Add to Wishlist"}</p>
+        <p>{saved ? "Remove to Saved" : "Add to Saved"}</p>
       </TooltipContent>
     </Tooltip>
   );

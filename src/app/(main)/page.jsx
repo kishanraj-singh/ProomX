@@ -32,7 +32,8 @@ export default async function Home() {
           variant="secondary"
           className="mb-1 cursor-pointer hover:scale-105 transition-all duration-200"
         >
-          <HeartHandshake color="#3b82f6" /> Loved by Heros <ArrowRight />
+          <HeartHandshake className="text-blue-500" /> Loved by Heros
+          <ArrowRight />
         </Badge>
         <h1 className="text-primary text-4xl xl:text-5xl font-semibold font-sans text-center tracking-tight text-balance">
           The Ultimate AI Prompt Library

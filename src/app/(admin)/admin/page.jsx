@@ -1,4 +1,5 @@
 "use client";
+
 import DataTable from "@/components/admin/DataTable";
 import SectionCards from "@/components/admin/SectionCards";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -9,10 +10,8 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 
 export default function Page() {
-  //variables
   const [adminProfile, setAdminProfile] = useState();
 
-  //functions
   useEffect(() => {
     onAuthStateChanged(auth, (detectedAdmin) => {
       if (detectedAdmin) {
@@ -21,7 +20,6 @@ export default function Page() {
     });
   }, []);
 
-  //return
   return (
     <AuthGuard>
       <div className="w-full flex flex-col">

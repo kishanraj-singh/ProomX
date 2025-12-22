@@ -1,21 +1,15 @@
 import Image from "next/image";
 import { Card } from "../ui/card";
 import Link from "next/link";
-import generateTimeAgo from "@/helper/generateTimeAgo";
-import formatNumber from "@/helper/formatNumber";
-import AddToWishlistButton from "./add-wishlist-button";
 import { Badge } from "../ui/badge";
 import { ArrowRight, ChevronRight, Tag } from "lucide-react";
+import SavedToggleButton from "./saved-toggle-button";
 
 export default function BundleBox({ bundle }) {
   const bundleData = bundle.data();
   return (
     <Card className="w-full sm:w-[46%] lg:w-[31%] bg-transparent p-0 overflow-hidden pb-4 border-0 shadow-none transition-transform duration-500 hover:scale-[102%] hover:[&_span]:[&_svg]:-rotate-45 relative rounded-none">
-      <Badge className="absolute left-2.5 top-2.5 bg-secondary/25 hover:bg-secondary/50 border-0 text-white">
-        <Tag />
-        Free
-      </Badge>
-      <AddToWishlistButton bundleId={bundle.id} />
+      <SavedToggleButton bundleId={bundle.id} />
       <Link href={`/${bundleData.category}/${bundleData.slug}` || "#"}>
         <Image
           src={bundleData.photoURL}
@@ -38,7 +32,7 @@ export default function BundleBox({ bundle }) {
             variant="secondary"
             className="font-normal my-2 rounded-sm transition-all duration-200 [&_svg]:transition-all [&_svg]:duration-200"
           >
-            View collection <ArrowRight />
+            View bundle <ArrowRight />
           </Badge>
         </div>
       </Link>

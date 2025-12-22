@@ -150,6 +150,10 @@ export default function Header() {
                       <Mail /> Contact
                     </Button>
                   </Link>
+                  <div className="w-full flex justify-between items-center bg-secondary rounded-md py-2.5 px-4">
+                    <p className="text-muted-foreground">Appearance</p>
+                    <ThemeToggleButton />
+                  </div>
                 </div>
                 <SheetFooter>
                   <p className="text-sm text-muted-foreground">
@@ -297,8 +301,6 @@ export default function Header() {
               />
             )}
           </div>
-          {/* 
-          <ThemeToggleButton /> */}
 
           <Link href="/saved">
             <Button variant="secondary">
@@ -306,7 +308,7 @@ export default function Header() {
             </Button>
           </Link>
 
-          <Link href="/wishlist">
+          <Link href="/saved">
             <Button className="ml-2">
               <GitHubLogoIcon /> GitHub
             </Button>

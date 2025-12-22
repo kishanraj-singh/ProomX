@@ -1,5 +1,5 @@
 "use client";
-//imports
+
 import { Search } from "lucide-react";
 import {
   InputGroup,
@@ -11,11 +11,9 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function SearchBox() {
-  //variables
   const router = useRouter();
   const [searchq, setSearchq] = useState("");
 
-  //functions
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchq.trim() !== "") {
@@ -23,7 +21,6 @@ export default function SearchBox() {
     }
   };
 
-  //return
   return (
     <form className="flex flex-col sm:flex-row items-center gap-4 px-2 sm:px-0">
       <InputGroup className="w-full xl:max-w-[450px] h-[45px] ">

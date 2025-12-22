@@ -78,7 +78,7 @@ export default async function Category({ params }) {
       <div className="flex flex-col px-[3%] py-[8%] sm:py-[3%] gap-[10vw] sm:gap-[3vw]">
         {/*search result header}*/}
         <div className="w-full flex flex-col items-center gap-2 px-[4%]">
-          <h1 className="text-[32px] sm:text-[36px] md:text-[40px] lg:text-[50px] font-semibold text-center leading-tight">
+          <h1 className="text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] font-semibold lg:font-bold text-center leading-tight">
             {categories[category].title}
           </h1>
           <h2 className="w-full md:text-lg text-gray-400 text-center">

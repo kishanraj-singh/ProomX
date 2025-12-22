@@ -265,7 +265,7 @@ export default function Header() {
                       <Search size={18} />
                       <input
                         type="text"
-                        placeholder="Search for bundles..."
+                        placeholder="Search for Collection..."
                         onKeyPress={searchHandle}
                         value={searchq}
                         onChange={(e) => setSearchq(e.target.value)}
@@ -282,7 +282,7 @@ export default function Header() {
             <Search size={18} />
             <input
               type="text"
-              placeholder="Search for bundles..."
+              placeholder="Search for Collection..."
               onKeyPress={searchHandle}
               value={searchq}
               onChange={(e) => setSearchq(e.target.value)}

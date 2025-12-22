@@ -1,7 +1,7 @@
 //imports
-import BreadCrumb from "@/components/main-ui/BreadCrumb";
-import ShareBar from "@/components/main-ui/ShareBar";
-import TextView from "@/components/main-ui/TextView";
+import BreadCrumb from "@/components/main/breed-crumb";
+import ShareBar from "@/components/main/share-section";
+import PromptView from "@/components/main/prompt-view";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { firestore } from "@/config/firebase";
@@ -31,16 +31,16 @@ export async function generateMetadata({ params }) {
 
   if (bundlesData.empty)
     return {
-      title: "Bundle not found",
-      description: "This bundle slug may be wrong or deleted by admin.",
+      title: "collection not found",
+      description: "This collection slug may be wrong or deleted by admin.",
     };
 
   return {
     title: bundlesData.title,
-    description: `Bundle description: ${bundlesData.description}`,
+    description: `collection description: ${bundlesData.description}`,
     openGraph: {
       title: bundlesData.title,
-      description: `Bundle description: ${bundlesData.description}`,
+      description: `collection description: ${bundlesData.description}`,
       url: `https://www.resneed.online/${bundlesData.category}/${bundlesData.slug}`,
       images: bundlesData.photoURL
         ? [{ url: bundlesData.photoURL }]
@@ -58,7 +58,7 @@ export default async function slug({ params }) {
   if (bundlesSnapshot.empty) {
     notFound();
   }
-  const bundle = bundlesSnapshot.docs[0];
+  const collection = bundlesSnapshot.docs[0];
   const bundleData = bundlesSnapshot.docs[0].data();
   const bundleItemsnapshot = await getDocs(
     query(
@@ -81,9 +81,9 @@ export default async function slug({ params }) {
         <BreadCrumb />
       </div>
       <div className="flex flex-col md:flex-row py-[3%] px-[3%]">
-        {/*bundle items nav*/}
+        {/*collection items nav*/}
         <div className="w-full md:w-[28%] h-full p-4">
-          <h2 className="text-2xl text-primary">Bundle Items</h2>
+          <h2 className="text-2xl text-primary">collection Items</h2>
           <div className="px-2 py-5 flex flex-col [&_a]:text-[15px] [&_a]:text-gray-400 [&_a]:border-l [&_a]:px-5 [&_a]:py-2">
             {bundleItems.map((bundleItem, index) => (
               <Link
@@ -104,11 +104,11 @@ export default async function slug({ params }) {
             &bull; {formatNumber(bundleData.views)} views
           </p>
         </div>
-        {/*bundle items nav*/}
+        {/*collection items nav*/}
 
-        {/*bundle items content*/}
+        {/*collection items content*/}
         <div className="flex flex-col flex-1 gap-4 px-[3%] md:px-[6%] py-4">
-          {/*bundle items content header}*/}
+          {/*collection items content header}*/}
           <div className="w-full flex flex-col gap-2">
             <h1 className="text-[26px] md:text-[30px] lg:text-[34px] font-semibold leading-tight">
               {bundleData.title}
@@ -117,8 +117,8 @@ export default async function slug({ params }) {
               {bundleData.description}
             </h2>
           </div>
-          {/*bundle items content header}*/}
-          {/*bundle items */}
+          {/*collection items content header}*/}
+          {/*collection items */}
           {bundleItems.map((bundleItem, index) => {
             const bundleItemData = bundleItem.data();
             return (
@@ -181,9 +181,9 @@ export default async function slug({ params }) {
               </div>
             );
           })}
-          {/*bundle items */}
+          {/*collection items */}
         </div>
-        {/*bundle items content*/}
+        {/*collection items content*/}
       </div>
       {/*share bar*/}
       <ShareBar />

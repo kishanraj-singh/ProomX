@@ -1,4 +1,5 @@
 "use client";
+
 import {
   Table,
   TableBody,
@@ -25,11 +26,11 @@ import { EllipsisVertical, RefreshCcw } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import generateTimeAgo from "@/helper/generateTimeAgo";
-import AddBundleDialog from "./AddBundleDialog";
+import AddBundleDialog from "./add-bundle-dialog";
+import AddBundleItemsDialog from "./add-bundleitems-dialog";
 import Link from "next/link";
 import { Badge } from "../ui/badge";
 import formatNumber from "@/helper/formatNumber";
-import AddBundleItemsDialog from "./AddBundleItemsDialog";
 import { Spinner } from "../ui/spinner";
 import {
   DropdownMenu,
@@ -41,13 +42,13 @@ import {
 import { toast } from "sonner";
 
 export default function DataTable() {
-  const [selectedBundleItems, setselectedBundleItems] = useState(0);
+  const [selectedBundleItem, setSelectedBundleItem] = useState(0);
   const [bundles, setbundles] = useState(null);
   const [bundleItems, setbundleItems] = useState(null);
   const [loadingBundles, setloadingBundles] = useState(true);
-  const [loadingbundleItems, setLoadingbundleItems] = useState(false);
+  const [loadingBundleItems, setLoadingBundleItems] = useState(false);
 
-  //get bundleItems lists
+  //get bundle
   const getbundles = async () => {
     setloadingBundles(true);
     const bundlesSnapshot = await getDocs(
@@ -64,31 +65,31 @@ export default function DataTable() {
   //get bundleItems
   const getbundleItems = async () => {
     if (bundles.length !== 0) {
-      setLoadingbundleItems(true);
+      setLoadingBundleItems(true);
       const bundleItemsSnapshot = await getDocs(
         query(
           collection(firestore, "bundleItems/"),
-          where("bundleSlug", "==", bundles?.[selectedBundleItems]?.data().slug)
+          where("bundleSlug", "==", bundles?.[selectedBundleItem]?.data().slug)
         )
       );
       setbundleItems(bundleItemsSnapshot.docs);
-      setLoadingbundleItems(false);
+      setLoadingBundleItems(false);
     }
   };
-  //
+
   useState(() => {
     getbundles();
   }, []);
-  //
+
   useEffect(() => {
-    if (selectedBundleItems !== null && bundles) {
+    if (selectedBundleItem !== null && bundles) {
       getbundleItems();
     }
-  }, [selectedBundleItems, bundles]);
+  }, [selectedBundleItem, bundles]);
 
   //delete bundle
   const deletebundle = async (bundle) => {
-    const id = toast.loading("deleting...");
+    const id = toast.loading("Deleting...");
     const bundleItemsSnapshot = await getDocs(
       query(
         collection(firestore, "bundleItems/"),
@@ -112,12 +113,12 @@ export default function DataTable() {
 
   //delete bundleItems
   const deletebundleItems = async (bundleItems) => {
-    const id = toast.loading("deleting...");
+    const id = toast.loading("Deleting...");
     await deleteDoc(bundleItems.ref);
     toast.success("Deleted", { id });
   };
 
-  //toggle publish/draft bundleItems list
+  //toggle publish/draft bundle
   const togglePublishbundle = async (bundle) => {
     if (bundle.data().status === "published") {
       await updateDoc(bundle.ref, {
@@ -135,7 +136,7 @@ export default function DataTable() {
   return (
     <div className="w-full flex flex-col gap-2.5">
       <div className="w-full flex justify-between items-center gap-2.5">
-        <h1 className="text-lg">bundleItems Lists</h1>
+        <h1 className="text-lg">bundles</h1>
         <div className="flex gap-2.5">
           <AddBundleDialog />
           <Button variant="outline" onClick={getbundles}>
@@ -151,7 +152,7 @@ export default function DataTable() {
               <TableHead className="pl-8">bundleItems lists</TableHead>
               <TableHead className="text-center">Status</TableHead>
               <TableHead className="text-center">Created At</TableHead>
-              <TableHead className="text-center">Last Updated</TableHead>
+              <TableHead className="text-center">Category</TableHead>
               <TableHead className="text-center pr-8">Views</TableHead>
               <TableHead></TableHead>
             </TableRow>
@@ -165,7 +166,7 @@ export default function DataTable() {
                     <TableCell className="font-medium pl-8 w-[35%]">
                       <Link
                         href="/admin#bundleItems"
-                        onClick={() => setselectedBundleItems(index)}
+                        onClick={() => setSelectedBundleItem(index)}
                         className="flex items-center gap-2 line-clamp-1 cursor-pointer"
                       >
                         <span>{index + 1}.</span>
@@ -182,7 +183,7 @@ export default function DataTable() {
                       {generateTimeAgo(bundleData.createdAt.toDate())}
                     </TableCell>
                     <TableCell className="text-center">
-                      {generateTimeAgo(bundleData.lastUpdate.toDate())}
+                      <Badge variant="outline">{bundleData.category}</Badge>
                     </TableCell>
                     <TableCell className="text-center pr-8">
                       {formatNumber(bundleData.views)}
@@ -201,7 +202,7 @@ export default function DataTable() {
                           <DropdownMenuItem
                             onClick={() => togglePublishbundle(bundle)}
                           >
-                            {bundleData.status === "publish"
+                            {bundleData.status === "published"
                               ? "draft"
                               : "publish"}
                           </DropdownMenuItem>
@@ -231,11 +232,11 @@ export default function DataTable() {
 
       <div className="w-full flex justify-between items-center gap-2.5 mt-10">
         <h1 className="text-lg">
-          bundleItems of {bundles?.[selectedBundleItems]?.data().title}
+          bundleItems of {bundles?.[selectedBundleItem]?.data().title}
         </h1>
         <div className="flex gap-2.5">
           <AddBundleItemsDialog
-            bundleData={bundles?.[selectedBundleItems]?.data()}
+            bundleData={bundles?.[selectedBundleItem]?.data()}
           />
           <Button variant="outline" onClick={getbundleItems}>
             <RefreshCcw />
@@ -254,7 +255,7 @@ export default function DataTable() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {!loadingbundleItems ? (
+            {!loadingBundleItems ? (
               bundleItems?.length !== 0 ? (
                 bundleItems?.map((bundleItems, index) => {
                   const bundleItemsData = bundleItems.data();

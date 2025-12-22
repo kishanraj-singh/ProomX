@@ -24,7 +24,7 @@ export default function AddToWishlistButton({ bundleId }) {
       savedItems = savedItems.filter((item) => item != bundleId);
     } else {
       savedItems.push(bundleId);
-      toast.success("Bundle added to wistlist");
+      toast.success("collection added to wistlist");
     }
     localStorage.setItem("wishlist", JSON.stringify(savedItems));
     setSaved(!saved);

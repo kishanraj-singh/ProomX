@@ -28,7 +28,7 @@ export default function SearchBox() {
     <form className="flex flex-col sm:flex-row items-center gap-4 px-2 sm:px-0">
       <InputGroup className="w-full xl:max-w-[450px] h-[45px] ">
         <InputGroupInput
-          placeholder="Search for bundles..."
+          placeholder="Search for Collection..."
           value={searchq}
           onChange={(e) => setSearchq(e.target.value)}
         />

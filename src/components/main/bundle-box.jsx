@@ -3,11 +3,11 @@ import { Card } from "../ui/card";
 import Link from "next/link";
 import generateTimeAgo from "@/helper/generateTimeAgo";
 import formatNumber from "@/helper/formatNumber";
-import AddToWishlistButton from "./add-wishlist-buuton";
+import AddToWishlistButton from "./add-wishlist-button";
 import { Badge } from "../ui/badge";
 import { ArrowRight, ChevronRight } from "lucide-react";
 
-export default function BundleBox({ bundle }) {
+export default function BundleBox({ collection }) {
   const bundleData = bundle.data();
   return (
     <Card className="w-full sm:w-[46%] lg:w-[31%] bg-transparent p-0 overflow-hidden pb-4 border-0 transition-transform duration-500 hover:scale-[102%] hover:[&_span]:[&_svg]:-rotate-45 relative rounded-none">
@@ -37,7 +37,7 @@ export default function BundleBox({ bundle }) {
             variant="secondary"
             className="font-normal my-2 rounded-sm transition-all duration-200 [&_svg]:transition-all [&_svg]:duration-200"
           >
-            View Bundle <ArrowRight />
+            View collection <ArrowRight />
           </Badge>
         </div>
       </Link>

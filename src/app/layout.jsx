@@ -4,6 +4,7 @@ import Footer from "@/components/main/footer";
 import Header from "@/components/main/header";
 import { Toaster } from "@/components/ui/sonner";
 import { Inter } from "next/font/google";
+import ScrollTopButton from "@/components/main/scroll-top-button";
 
 const interFont = Inter({
   subsets: ["latin"],
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
               {children}
             </div>
             <Footer />
+            <ScrollTopButton />
           </main>
           <Toaster />
         </ThemeProvider>

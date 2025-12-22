@@ -20,6 +20,7 @@ import {
   SheetFooter,
 } from "@/components/ui/sheet";
 import {
+  BookmarkIcon,
   Briefcase,
   CircleAlert,
   Code,
@@ -57,7 +58,7 @@ export default function Header() {
 
   return (
     <>
-      <div className="w-full h-[80px] flex px-[3%] py-2 px-[3%] items-center justify-between fixed top-0 left-0 right-0 backdrop-blur-xl z-10 border-b">
+      <div className="w-full h-[80px] flex px-[3%] py-2 px-[3%] items-center justify-between fixed top-0 left-0 right-0 backdrop-blur-xl z-10 border-b border-muted-foreground/15">
         <div className="flex items-center gap-2">
           <div className="flex items-center [@media(min-width:820px)]:hidden">
             <Sheet open={menuSheetOpen} onOpenChange={setMenuSheetOpen}>
@@ -175,7 +176,7 @@ export default function Header() {
               <NavigationMenuList>
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="font-medium cursor-pointer bg-transparent">
-                    Explore
+                    Categories
                   </NavigationMenuTrigger>
                   <NavigationMenuContent className="grid">
                     <Link href="writing-content">
@@ -213,10 +214,10 @@ export default function Header() {
                 <NavigationMenuItem>
                   <NavigationMenuLink asChild>
                     <Link
-                      href="/privacy-policy"
+                      href="/explore"
                       className="font-medium cursor-pointer px-4"
                     >
-                      Privacy
+                      Explore
                     </Link>
                   </NavigationMenuLink>
                 </NavigationMenuItem>
@@ -296,7 +297,15 @@ export default function Header() {
               />
             )}
           </div>
-          <ThemeToggleButton />
+          {/* 
+          <ThemeToggleButton /> */}
+
+          <Link href="/saved">
+            <Button variant="secondary">
+              <BookmarkIcon />
+            </Button>
+          </Link>
+
           <Link href="/wishlist">
             <Button className="ml-2">
               <GitHubLogoIcon /> GitHub

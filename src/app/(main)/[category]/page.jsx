@@ -1,5 +1,5 @@
 import BreadCrumb from "@/components/main/breed-crumb";
-// import BundlesArea from "@/components/main-ui/BundlesArea";
+import BundlesArea from "@/components/main/bundles-area";
 import ShareBar from "@/components/main/share-section";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -93,7 +93,7 @@ export default async function Category({ params }) {
         </div>
         {/*search result header}*/}
         {/*main content*/}
-        {/* <BundlesArea category={category} /> */}
+        <BundlesArea category={category} />
         {/*main content*/}
       </div>
       <ShareBar />

@@ -30,7 +30,7 @@ export default function ScrollTopButton() {
   return (
     <Button
       variant="default"
-      className="size-10 rounded-full fixed bottom-10 right-8"
+      className="size-10 rounded-full fixed bottom-10 right-8 z-10"
       onClick={scrollTop}
     >
       <ArrowUp />

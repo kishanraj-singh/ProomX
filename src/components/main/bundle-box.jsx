@@ -5,12 +5,16 @@ import generateTimeAgo from "@/helper/generateTimeAgo";
 import formatNumber from "@/helper/formatNumber";
 import AddToWishlistButton from "./add-wishlist-button";
 import { Badge } from "../ui/badge";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronRight, Tag } from "lucide-react";
 
-export default function BundleBox({ collection }) {
+export default function BundleBox({ bundle }) {
   const bundleData = bundle.data();
   return (
-    <Card className="w-full sm:w-[46%] lg:w-[31%] bg-transparent p-0 overflow-hidden pb-4 border-0 transition-transform duration-500 hover:scale-[102%] hover:[&_span]:[&_svg]:-rotate-45 relative rounded-none">
+    <Card className="w-full sm:w-[46%] lg:w-[31%] bg-transparent p-0 overflow-hidden pb-4 border-0 shadow-none transition-transform duration-500 hover:scale-[102%] hover:[&_span]:[&_svg]:-rotate-45 relative rounded-none">
+      <Badge className="absolute left-2.5 top-2.5 bg-secondary/25 hover:bg-secondary/50 border-0 text-white">
+        <Tag />
+        Free
+      </Badge>
       <AddToWishlistButton bundleId={bundle.id} />
       <Link href={`/${bundleData.category}/${bundleData.slug}` || "#"}>
         <Image
@@ -19,17 +23,14 @@ export default function BundleBox({ collection }) {
           width={300}
           height={200}
           className="w-full aspect-video object-cover rounded-sm bg-secondary"
+          unoptimized
           draggable={false}
         />
-        <div className="px-2 flex flex-col gap-2 mt-6">
-          <h2 className="text-xl line-clamp-3">{bundleData.title}</h2>
+        <div className="px-2 flex flex-col gap-1 mt-4">
+          <h2 className="text-xl line-clamp-2">{bundleData.title}</h2>
           <div className="grid gap-1">
-            <p className="text-muted-foreground line-clamp-3">
+            <p className="text-muted-foreground line-clamp-2">
               {bundleData.description}
-            </p>
-            <p className="text-[12px] text-muted-foreground">
-              Last Updated: {generateTimeAgo(bundleData.lastUpdate.toDate())}{" "}
-              &bull; {formatNumber(bundleData.views)} views
             </p>
           </div>
 

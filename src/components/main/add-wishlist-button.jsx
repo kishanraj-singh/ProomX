@@ -35,7 +35,7 @@ export default function AddToWishlistButton({ bundleId }) {
       <TooltipTrigger asChild>
         <Button
           variant="ghost"
-          className="absolute top-2.5 right-2.5 bg-secondary/25 z-1"
+          className="absolute top-2.5 right-2.5 bg-secondary/25 hover:bg-secondary/50 z-1"
           onClick={toggleWishlist}
         >
           <Heart

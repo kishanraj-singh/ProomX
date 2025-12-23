@@ -18,6 +18,7 @@ export default function BundleBox({ bundle }) {
           height={200}
           className="w-full aspect-video object-cover rounded-sm bg-secondary"
           unoptimized
+          loading="lazy"
           draggable={false}
         />
         <div className="px-2 flex flex-col gap-1 mt-4">

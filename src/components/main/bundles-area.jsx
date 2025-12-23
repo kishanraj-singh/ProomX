@@ -81,7 +81,7 @@ export default function bundleItemsArea({ category }) {
         <Button
           disabled={!cursor}
           onClick={loadMore}
-          className="w-40"
+          className="w-50"
           variant="outline"
         >
           {processing ? <Spinner /> : "Load More"}

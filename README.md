@@ -1,11 +1,12 @@
-# ProomX
+# ProomX - The Ultimate AI Prompt Library
 
-**ProomX** is a creative platform focused on prompts, ideas, and tools for writing, productivity, startups, and automation.  
-Built to help creators, founders, and developers think faster and build smarter.
+**ProomX** is a curated AI prompt library designed to help individuals and professionals use AI tools more effectively. The platform offers structured prompt collections across writing, coding, design, image generation, marketing, and productivity - all organized for clarity, reuse, and practical application.
+
+more: https://www.proomx.online/about
 
 ---
 
-## ✨ Features
+## ✨ Features & Main Categories
 
 - 📝 High-quality prompts for writing & content creation
 - 📊 Business, startup & market research ideas
@@ -43,11 +44,4 @@ This project is currently in active development. Certain page or features may be
 
 ## 🔗 Checkout
 
-ProomX https//:www.proomx.online
-
----
-
-## 👤 Author
-
-j
-Kishan Raj Singh
+ProomX https://www.proomx.online

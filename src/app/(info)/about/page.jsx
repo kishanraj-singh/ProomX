@@ -20,7 +20,7 @@ export default function About() {
         <br />
 
         <h2 className="flex items-center gap-2.5 text-muted-foreground">
-          ❤️ Created with love
+          Made with ❤️ for you
         </h2>
 
         <p className="text-muted-foreground mt-2">
@@ -61,7 +61,7 @@ export default function About() {
         </p>
 
         <p className="text-muted-foreground mt-2">
-          ProomX is an independent project by{" "}
+          ProomX is Developed by{" "}
           <Link
             href="https://about.me/kishanrajsingh"
             target="_blank"

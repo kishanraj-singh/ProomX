@@ -87,10 +87,11 @@ export default function AddBundleItemsDialog({ bundleData }) {
 
           <div className="grid gap-3">
             <Label htmlFor="prompt">Prompt</Label>
-            <Input
+            <Textarea
               id="prompt"
               placeholder="Type here..."
               value={bundleItemPrompt}
+              className="max-h-50"
               onChange={(e) => setBundleItemPrompt(e.target.value)}
             />
           </div>

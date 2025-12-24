@@ -1,4 +1,3 @@
-//time ago generator function
 export default function generateTimeAgo(date) {
   let seconds = Math.floor((new Date() - date) / 1000);
   let intervals = {

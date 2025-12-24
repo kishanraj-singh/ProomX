@@ -1,4 +1,3 @@
-// slug generator function
 function slugify(text) {
   return text
     .toLowerCase()

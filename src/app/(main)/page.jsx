@@ -11,31 +11,35 @@ import {
   query,
   where,
 } from "firebase/firestore";
-import { ArrowRight, ChevronRightIcon, HeartHandshake } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowUpRightIcon,
+  ChevronRightIcon,
+  HeartHandshake,
+} from "lucide-react";
 import Link from "next/link";
 
 export default async function Home() {
   const snapshot = await getDocs(
     query(
       collection(firestore, "bundles/"),
-      where("category", "==", "coding-development"),
       where("status", "==", "published"),
       orderBy("createdAt", "desc"),
-      limit(3)
+      limit(12)
     )
   );
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <div className="flex flex-col justify-center items-center p-[8%] md:py-[4%] gap-5">
+    <main className="flex flex-col min-h-screen">
+      <section className="flex flex-col justify-center items-center p-[8%] md:py-[4%] gap-5">
         <Badge
           variant="secondary"
           className="mb-1 cursor-pointer hover:scale-105 transition-all duration-200"
         >
-          <HeartHandshake className="text-blue-500" /> Loved by Heros
-          <ArrowRight />
+          <HeartHandshake className="text-blue-500" /> Loved by Thousands of
+          User
         </Badge>
-        <h1 className="text-primary text-4xl xl:text-5xl font-semibold font-sans text-center tracking-tight text-balance">
+        <h1 className="text-primary text-4xl xl:text-5xl font-semibold text-center tracking-tight text-balance">
           The Ultimate AI Prompt Library
         </h1>
         <h2 className="max-w-2xl text-[16px] md:text-[18px] text-muted-foreground text-center">
@@ -44,13 +48,13 @@ export default async function Home() {
           <span className="underline">No login required.</span>
         </h2>
         <CTAButton />
-      </div>
+      </section>
 
-      <div
+      <section
         id="explore"
         className="w-full flex flex-col justify-center items-center px-[3%] py-[6%] md:py-[3%]"
       >
-        <div className="w-full grid gap-5" id="explore">
+        <div className="w-full grid gap-5">
           <div className="flex justify-between items-center px-[4%]">
             <h2 className="text-lg font-bold">Latest Bundles</h2>
             <Link href="/explore">
@@ -59,22 +63,7 @@ export default async function Home() {
               </Button>
             </Link>
           </div>
-          <div className="flex flex-wrap gap-10 px-[3%] justify-center">
-            {snapshot.docs.map((bundle, index) => (
-              <BundleBox key={index} bundle={bundle} />
-            ))}
-          </div>
-          <div className="flex flex-wrap gap-8 px-[3%] justify-center mt-5">
-            {snapshot.docs.map((bundle, index) => (
-              <BundleBox key={index} bundle={bundle} />
-            ))}
-          </div>
-          <div className="flex flex-wrap gap-8 px-[3%] justify-center mt-5">
-            {snapshot.docs.map((bundle, index) => (
-              <BundleBox key={index} bundle={bundle} />
-            ))}
-          </div>
-          <div className="flex flex-wrap gap-8 px-[3%] justify-center mt-5">
+          <div className="flex flex-wrap gap-x-10 gap-y-6 px-[3%] justify-center">
             {snapshot.docs.map((bundle, index) => (
               <BundleBox key={index} bundle={bundle} />
             ))}
@@ -82,11 +71,13 @@ export default async function Home() {
         </div>
 
         <Link href="/explore">
-          <Button variant="outline" className="w-50 my-8">
+          <Button variant="outline" className="w-50 my-8 sm:-mb-0">
             Explore All
           </Button>
         </Link>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
+
+export const revalidate = 86400;

@@ -23,7 +23,16 @@ export default function Footer() {
             image generation, coding, and productivity.
           </p>
           <Separator className="my-4" />
-          <p className="text-muted-foreground">Made with ❤️ by ResNeed</p>
+          <p className="text-muted-foreground">
+            Made with ❤️ by{" "}
+            <Link
+              href="https://about.me/kishanrajsingh"
+              target="_blank"
+              className="underline"
+            >
+              Kishan Raj Singh
+            </Link>
+          </p>
         </div>
         <br />
         <div>

@@ -1,7 +1,24 @@
 "use client";
 
-import { ChevronDownIcon, CircleArrowDownIcon } from "lucide-react";
+import {
+  Briefcase,
+  ChevronDownIcon,
+  CircleArrowDownIcon,
+  Code,
+  FileText,
+  Images,
+  TrendingUp,
+} from "lucide-react";
 import { Button } from "../ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import Link from "next/link";
 
 export default function CTA() {
   const handleExplore = () => {
@@ -16,9 +33,56 @@ export default function CTA() {
       <Button onClick={handleExplore}>
         <CircleArrowDownIcon /> Start Now
       </Button>
-      <Button variant="outline">
-        <ChevronDownIcon /> Categories
-      </Button>
+
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="outline">
+            <ChevronDownIcon /> Categories
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent>
+          <DropdownMenuItem>
+            <Link href="/writing-content">
+              <Button variant="ghost">
+                <FileText />
+                Writing & Content
+              </Button>
+            </Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <Link href="/marketing-sales">
+              <Button variant="ghost">
+                <TrendingUp />
+                Marketing & Sales
+              </Button>
+            </Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <Link href="/coding-development">
+              <Button variant="ghost">
+                <Code />
+                Coding & Development
+              </Button>
+            </Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <Link href="/design-image">
+              <Button variant="ghost">
+                <Images />
+                Design & Image
+              </Button>
+            </Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <Link href="/business-productivity">
+              <Button variant="ghost">
+                <Briefcase />
+                Business & Productivity
+              </Button>
+            </Link>
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
     </div>
   );
 }

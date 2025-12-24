@@ -46,7 +46,7 @@ export default function Saved() {
             Items you've added to saved will show here.
           </h2>
           <Link
-            href="mailto:support@resneed.online"
+            href="/contact"
             className="text-[15px] md:text-md text-muted-foreground text-center"
           >
             Need Help? <span className="underline">Contact</span>
@@ -83,8 +83,6 @@ export default function Saved() {
             ))
           )}
         </div>
-
-        <ShareBar />
       </div>
     </div>
   );

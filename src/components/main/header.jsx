@@ -92,31 +92,31 @@ export default function Header() {
                   className="w-full flex flex-col gap-2.5 px-2.5"
                   onClick={() => setMenuSheetOpen(false)}
                 >
-                  <Link href="writing-content">
+                  <Link href="/writing-content">
                     <Button variant="ghost">
                       <FileText />
                       Writing & Content
                     </Button>
                   </Link>
-                  <Link href="marketing-sales">
+                  <Link href="/marketing-sales">
                     <Button variant="ghost">
                       <TrendingUp />
                       Marketing & Sales
                     </Button>
                   </Link>
-                  <Link href="coding-development">
+                  <Link href="/coding-development">
                     <Button variant="ghost">
                       <Code />
                       Coding & Development
                     </Button>
                   </Link>
-                  <Link href="design-image">
+                  <Link href="/design-image">
                     <Button variant="ghost">
                       <Images />
                       Design & Image
                     </Button>
                   </Link>
-                  <Link href="business-productivity">
+                  <Link href="/business-productivity">
                     <Button variant="ghost">
                       <Briefcase />
                       Business & Productivity
@@ -182,37 +182,47 @@ export default function Header() {
                   <NavigationMenuTrigger className="font-medium cursor-pointer bg-transparent">
                     Categories
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent className="grid">
-                    <Link href="writing-content">
-                      <Button variant="ghost">
-                        <FileText />
-                        Writing & Content
-                      </Button>
-                    </Link>
-                    <Link href="marketing-sales">
-                      <Button variant="ghost">
-                        <TrendingUp />
-                        Marketing & Sales
-                      </Button>
-                    </Link>
-                    <Link href="coding-development">
-                      <Button variant="ghost">
-                        <Code />
-                        Coding & Development
-                      </Button>
-                    </Link>
-                    <Link href="design-image">
-                      <Button variant="ghost">
-                        <Images />
-                        Design & Image
-                      </Button>
-                    </Link>
-                    <Link href="business-productivity">
-                      <Button variant="ghost">
-                        <Briefcase />
-                        Business & Productivity
-                      </Button>
-                    </Link>
+                  <NavigationMenuContent className="grid [&_button]:justify-start">
+                    <NavigationMenuLink asChild>
+                      <Link href="/writing-content">
+                        <Button variant="ghost">
+                          <FileText />
+                          Writing & Content
+                        </Button>
+                      </Link>
+                    </NavigationMenuLink>
+                    <NavigationMenuLink asChild>
+                      <Link href="/marketing-sales">
+                        <Button variant="ghost">
+                          <TrendingUp />
+                          Marketing & Sales
+                        </Button>
+                      </Link>
+                    </NavigationMenuLink>
+                    <NavigationMenuLink asChild>
+                      <Link href="/coding-development">
+                        <Button variant="ghost">
+                          <Code />
+                          Coding & Development
+                        </Button>
+                      </Link>
+                    </NavigationMenuLink>
+                    <NavigationMenuLink asChild>
+                      <Link href="/design-image">
+                        <Button variant="ghost">
+                          <Images />
+                          Design & Image
+                        </Button>
+                      </Link>
+                    </NavigationMenuLink>
+                    <NavigationMenuLink asChild>
+                      <Link href="/business-productivity">
+                        <Button variant="ghost">
+                          <Briefcase />
+                          Business & Productivity
+                        </Button>
+                      </Link>
+                    </NavigationMenuLink>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
@@ -229,10 +239,10 @@ export default function Header() {
                 <NavigationMenuItem>
                   <NavigationMenuLink asChild>
                     <Link
-                      href="/terms"
+                      href="/contact"
                       className="font-medium cursor-pointer px-4"
                     >
-                      Terms
+                      Contact
                     </Link>
                   </NavigationMenuLink>
                 </NavigationMenuItem>
@@ -270,7 +280,7 @@ export default function Header() {
                       <Search size={18} />
                       <input
                         type="text"
-                        placeholder="Search for Collection..."
+                        placeholder="Search for Bundles..."
                         onKeyPress={searchHandle}
                         value={searchq}
                         onChange={(e) => setSearchq(e.target.value)}
@@ -287,7 +297,7 @@ export default function Header() {
             <Search size={18} />
             <input
               type="text"
-              placeholder="Search for Collection..."
+              placeholder="Search for Bundles..."
               onKeyPress={searchHandle}
               value={searchq}
               onChange={(e) => setSearchq(e.target.value)}
@@ -308,7 +318,7 @@ export default function Header() {
             </Button>
           </Link>
 
-          <Link href="/saved">
+          <Link href="https://github.com/kishanraj-singh/ProomX">
             <Button className="ml-2">
               <GitHubLogoIcon /> GitHub
             </Button>

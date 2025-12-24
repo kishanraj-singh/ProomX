@@ -27,7 +27,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: bundlesData.title,
       description: `Bundle description: ${bundlesData.description}`,
-      url: `https://www.resneed.online/${bundlesData.category}/${bundlesData.slug}`,
+      url: `https://www.proomx.online/${bundlesData.category}/${bundlesData.slug}`,
       images: bundlesData.photoURL
         ? [{ url: bundlesData.photoURL }]
         : [{ url: "/logomain.jpg" }],
@@ -80,12 +80,12 @@ export default async function slug({ params }) {
           </p>
 
           <p className="text-gray-500 text-[13px]">
-            &bull; {formatNumber(bundleData.views)} views
+            &bull; {bundleItems.length} Prompts
           </p>
         </div>
 
         <div className="flex flex-col flex-1 gap-4 px-[3%] md:px-[6%] py-4">
-          <div className="w-full flex flex-col gap-2">
+          <div className="w-full flex flex-col gap-6">
             <h1 className="text-[26px] md:text-[30px] lg:text-[34px] text-primary font-semibold leading-tight">
               {bundleData.title}
             </h1>

@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/tooltip";
 import { Button } from "../ui/button";
 import { toast } from "sonner";
+import Image from "next/image";
 
 export default function PromptView({ copyText }) {
   const copyToClipboard = async () => {
@@ -21,25 +22,36 @@ export default function PromptView({ copyText }) {
   };
 
   return (
-    <Card className="w-full p-0 overflow-hidden rounded-md border-0 shadow-none mt-2.5 bg-secondary">
-      <div className="flex items-center justify-between border-b px-4 py-2 text-primary">
-        <p className="text-primary">Prompt</p>
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <Button variant="ghost" onClick={copyToClipboard}>
-              <Copy />
-            </Button>
-          </TooltipTrigger>
-          <TooltipContent>
-            <p>Copy to clipboard</p>
-          </TooltipContent>
-        </Tooltip>
-      </div>
-      <div className="w-full px-4 pb-4 text-muted-foreground">
-        <code className="text-[13px] md:text-[15px] whitespace-pre-wrap">
-          {copyText}
-        </code>
-      </div>
-    </Card>
+    <div className="flex flex-col items-center gap-5">
+      <Card className="w-full p-0 overflow-hidden rounded-md border-0 shadow-none mt-2.5 bg-secondary">
+        <div className="flex items-center justify-between border-b border-primary/15 px-4 py-2 text-primary">
+          <p className="text-primary flex items-center gap-2">
+            <Image
+              src="/logo-full.png"
+              width={70}
+              height={28}
+              className="invert dark:invert-0 opacity-60 grayscale"
+              alt="logo"
+              unoptimized
+            />
+          </p>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button variant="ghost" onClick={copyToClipboard}>
+                <Copy />
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>Copy to clipboard</p>
+            </TooltipContent>
+          </Tooltip>
+        </div>
+        <div className="w-full px-4 pb-4 text-muted-foreground">
+          <code className="text-[14px] md:text-[17px] whitespace-pre-wrap">
+            {copyText}
+          </code>
+        </div>
+      </Card>
+    </div>
   );
 }

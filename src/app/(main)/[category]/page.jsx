@@ -76,7 +76,6 @@ export default async function Category({ params }) {
         <BreadCrumb />
       </div>
       <div className="flex flex-col px-[3%] py-[8%] sm:py-[3%] gap-[10vw] sm:gap-[3vw]">
-        {/*search result header}*/}
         <div className="w-full flex flex-col items-center gap-2 px-[4%]">
           <h1 className="text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] font-semibold lg:font-bold text-center leading-tight">
             {categories[category].title}
@@ -85,16 +84,14 @@ export default async function Category({ params }) {
             Top new {categories[category].title} releted Bundles
           </h2>
           <Link
-            href="mailto:support@resneed.online"
+            href="/contact"
             className="text-[15px] md:text-md text-muted-foreground text-center"
           >
             Need Help? <span className="underline">Contact</span>
           </Link>
         </div>
-        {/*search result header}*/}
-        {/*main content*/}
+
         <BundlesArea category={category} />
-        {/*main content*/}
       </div>
       <ShareBar />
     </div>

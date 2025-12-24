@@ -1,4 +1,3 @@
-//Number formater function
 export default function formatNumber(number) {
   if (number >= 1e9) {
     return (number / 1e9).toFixed(1).replace(/\.0$/, "") + "B";

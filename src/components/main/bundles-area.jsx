@@ -60,7 +60,7 @@ export default function bundleItemsArea({ category }) {
 
   return (
     <div className="flex flex-col gap-10">
-      <div className="flex flex-wrap gap-10 px-[3%] justify-center">
+      <div className="flex flex-wrap gap-x-10 gap-y-6  px-[3%] justify-center">
         {bundles
           ? bundles.map((bundle, index) => (
               <BundleBox key={index} bundle={bundle} />

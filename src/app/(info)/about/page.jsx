@@ -63,7 +63,7 @@ export default function About() {
         <p className="text-muted-foreground mt-2">
           ProomX is an independent project by{" "}
           <Link
-            href="https://www.resneed.online"
+            href="https://about.me/kishanrajsingh"
             target="_blank"
             className="underline"
           >

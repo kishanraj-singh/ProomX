@@ -1,4 +1,3 @@
-//imports
 import { Button } from "@/components/ui/button";
 import { Mail } from "lucide-react";
 import Link from "next/link";

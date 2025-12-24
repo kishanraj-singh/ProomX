@@ -89,7 +89,7 @@ export default async function Query({ params }) {
               : " No Result match with your Search"}
           </h2>
           <Link
-            href="mailto:support@resneed.online"
+            href="/contact"
             className="text-[15px] md:text-md text-muted-foreground text-center"
           >
             Need Help? <span className="underline">Contact</span>

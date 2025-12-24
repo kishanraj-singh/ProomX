@@ -43,10 +43,11 @@ This project is currently in active development. Certain page or features may be
 
 ## 🔗 Checkout
 
-ProomX https:www.proomx.online
+ProomX https//:www.proomx.online
 
 ---
 
 ## 👤 Author
 
+j
 Kishan Raj Singh

@@ -318,7 +318,10 @@ export default function Header() {
             </Button>
           </Link>
 
-          <Link href="https://github.com/kishanraj-singh/ProomX">
+          <Link
+            href="https://github.com/kishanraj-singh/ProomX"
+            target="_blank"
+          >
             <Button className="ml-2">
               <GitHubLogoIcon /> GitHub
             </Button>

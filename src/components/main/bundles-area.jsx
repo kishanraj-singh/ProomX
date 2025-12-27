@@ -60,7 +60,7 @@ export default function bundleItemsArea({ category }) {
 
   return (
     <div className="flex flex-col gap-10">
-      <div className="flex flex-wrap gap-x-10 gap-y-6  px-[3%] justify-center">
+      <div className="flex flex-wrap gap-x-10 gap-y-6 px-[3%] justify-center">
         {bundles
           ? bundles.map((bundle, index) => (
               <BundleBox key={index} bundle={bundle} />
@@ -68,9 +68,9 @@ export default function bundleItemsArea({ category }) {
           : Array.from({ length: 12 }, (_, index) => (
               <div
                 key={index}
-                className="w-full sm:w-[46%] lg:w-[31%] flex flex-col gap-3 p-0 overflow-hidden pb-4 transition-transform duration-500 hover:scale-[102%]"
+                className="w-full sm:w-[46%] lg:w-[30.5%] flex flex-col gap-3 p-0 overflow-hidden pb-4 transition-transform duration-500 hover:scale-[102%]"
               >
-                <Skeleton className="w-full aspect-[3/2] rounded-sm" />
+                <Skeleton className="w-full aspect-video rounded-sm" />
                 <Skeleton className="w-full h-4 rounded-full" />
                 <Skeleton className="w-[70%] h-4 rounded-full" />
                 <Skeleton className="w-[80%] h-4 rounded-full" />
@@ -84,7 +84,7 @@ export default function bundleItemsArea({ category }) {
           className="w-50"
           variant="outline"
         >
-          {processing ? <Spinner /> : "Load More"}
+          {processing ? <Spinner /> : cursor ? "Load More" : "No More Data"}
         </Button>
       </div>
     </div>

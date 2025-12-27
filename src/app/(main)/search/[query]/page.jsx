@@ -105,9 +105,9 @@ export default async function Query({ params }) {
             <SearchBox />
           )}
         </div>
-
-        <ShareBar />
       </div>
+
+      <ShareBar />
     </div>
   );
 }

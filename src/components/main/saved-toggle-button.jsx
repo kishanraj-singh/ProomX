@@ -33,14 +33,10 @@ export default function SavedToggleButton({ bundleId }) {
   return (
     <Tooltip>
       <TooltipTrigger asChild>
-        <Button
-          variant="ghost"
-          className="absolute top-2.5 right-2.5 bg-white/20 hover:bg-white/15 z-1"
-          onClick={toggleSaved}
-        >
+        <Button variant="outline" onClick={toggleSaved}>
           <BookmarkIcon
             className={`${
-              saved ? "text-blue-500 fill-blue-500" : "text-white"
+              saved ? "text-blue-500 fill-blue-500" : "text-primary"
             }`}
           />
         </Button>

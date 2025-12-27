@@ -5,10 +5,20 @@ import { firestore } from "@/config/firebase";
 import formatNumber from "@/helper/formatNumber";
 import generateSlug from "@/helper/generateSlug";
 import generateTimeAgo from "@/helper/generateTimeAgo";
-import { collection, getDocs, orderBy, query, where } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDocs,
+  increment,
+  orderBy,
+  query,
+  updateDoc,
+  where,
+} from "firebase/firestore";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Badge } from "@/components/ui/badge";
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
@@ -28,9 +38,14 @@ export async function generateMetadata({ params }) {
       title: bundlesData.title,
       description: `Bundle description: ${bundlesData.description}`,
       url: `https://www.proomx.online/${bundlesData.category}/${bundlesData.slug}`,
-      images: bundlesData.photoURL
-        ? [{ url: bundlesData.photoURL }]
-        : [{ url: "/logomain.jpg" }],
+      images: [
+        {
+          url: "/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: "ProomX AI Prompt Library",
+        },
+      ],
     },
   };
 }
@@ -44,14 +59,18 @@ export default async function slug({ params }) {
     notFound();
   }
   const bundleData = bundlesSnapshot.docs[0].data();
+  await updateDoc(bundlesSnapshot.docs[0].ref, {
+    views: increment(1),
+  });
 
   const bundleItemsnapshot = await getDocs(
     query(
       collection(firestore, "bundleItems/"),
-      orderBy("createdAt", "desc"),
+      orderBy("createdAt"),
       where("bundleSlug", "==", slug)
     )
   );
+
   const bundleItems = bundleItemsnapshot.docs;
 
   return (
@@ -75,12 +94,15 @@ export default async function slug({ params }) {
               </Link>
             ))}
           </div>
+
           <p className="text-gray-500 text-[13px]">
             &bull; Created {generateTimeAgo(bundleData.createdAt.toDate())}
           </p>
-
           <p className="text-gray-500 text-[13px]">
             &bull; {bundleItems.length} Prompts
+          </p>
+          <p className="text-gray-500 text-[13px]">
+            &bull; {formatNumber(bundleData.views)} Views
           </p>
         </div>
 
@@ -92,18 +114,10 @@ export default async function slug({ params }) {
             <h2 className="text-[16px] md:text-[18px] text-muted-foreground">
               {bundleData.description}
             </h2>
-            {bundleData.photoURL && (
-              <Image
-                src={bundleData.photoURL}
-                alt="bundle-image"
-                width={300}
-                height={200}
-                className="w-full aspect-video object-cover rounded-sm bg-secondary mt-2.5"
-                unoptimized
-                loading="lazy"
-                draggable={false}
-              />
-            )}
+            <p className="text-[16px] md:text-[18px] text-muted-foreground italic">
+              Note: The prompt "Example Preview" sytem will be introduced after
+              3.0 upcoming update.
+            </p>
           </div>
           {bundleItems.map((bundleItem, index) => {
             const bundleItemData = bundleItem.data();
@@ -116,6 +130,25 @@ export default async function slug({ params }) {
                 <h2 className="text-[24px] md:text-[28px] lg:text-[32px] text-primary font-semibold leading-tight">
                   {index + 1} &bull; {bundleItemData.title}
                 </h2>
+
+                {bundleItemData.photoURL && (
+                  <div className="w-fit relative">
+                    <Image
+                      src={bundleItemData.photoURL}
+                      width={100}
+                      height={100}
+                      alt="Bundle Item Image"
+                      className="w-100 rounded-sm"
+                      unoptimized
+                    />
+                    <Badge
+                      variant="secondary"
+                      className="absolute bottom-5 right-5"
+                    >
+                      Example Output
+                    </Badge>
+                  </div>
+                )}
 
                 {bundleItemData.prompt && (
                   <PromptView copyText={bundleItemData.prompt} />

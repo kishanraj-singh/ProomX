@@ -39,41 +39,17 @@ export default function AddBundleDialog() {
   const [bundleTitle, setbundleTitle] = useState("");
   const [bundleDiscription, setbundleDiscription] = useState("");
   const [bundleCategory, setbundleCategory] = useState("writing-content");
-  const [selectedPhoto, setSelectedPhoto] = useState(null);
 
   const handleUpload = async () => {
     const toastId = toast.loading("Uploading bundle...");
     try {
-      //uploading image
-      const signRes = await fetch("/api/cloudinary-sign", { method: "POST" });
-      const { timestamp, signature, apiKey, cloudName } = await signRes.json();
-
-      const formData = new FormData();
-      formData.append("file", selectedPhoto);
-      formData.append("api_key", apiKey);
-      formData.append("timestamp", timestamp);
-      formData.append("signature", signature);
-      formData.append("folder", "uploads");
-
-      const uploadRes = await fetch(
-        `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
-
-      const data = await uploadRes.json();
-      const photoURL = data.secure_url;
       const slug = generateSlug(bundleTitle);
-
       //add bundles on firestore
       await addDoc(collection(firestore, "bundles/"), {
         slug: slug,
         title: bundleTitle,
         description: bundleDiscription,
         category: bundleCategory,
-        photoURL: photoURL,
         uploader: auth.currentUser.uid,
         createdAt: new Date(),
         status: "draft",
@@ -153,17 +129,6 @@ export default function AddBundleDialog() {
                 </SelectGroup>
               </SelectContent>
             </Select>
-          </div>
-
-          <div className="grid gap-3">
-            <Label htmlFor="file">Choose Photo</Label>
-            <Input
-              id="file"
-              type="file"
-              accept="image/*"
-              onChange={(e) => setSelectedPhoto(e.target.files[0])}
-              className="cursor-pointer"
-            />
           </div>
         </div>
         <DialogFooter>

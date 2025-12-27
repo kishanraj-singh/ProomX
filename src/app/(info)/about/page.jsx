@@ -24,40 +24,34 @@ export default function About() {
         </h2>
 
         <p className="text-muted-foreground mt-2">
-          ProomX is a curated AI prompt library designed to help individuals and
-          professionals use AI tools more effectively. The platform offers
-          structured prompt collections across writing, coding, design, image
-          generation, marketing, and productivity — all organized for clarity,
-          reuse, and practical application.
+          ProomX is a free AI prompt library built to help users interact more
+          effectively with modern AI tools. The platform offers carefully
+          written prompts that can be used with ChatGPT, Gemini, and other
+          cloud-based AI systems to generate better and more relevant results.
         </p>
 
         <p className="text-muted-foreground mt-2">
-          The idea behind ProomX is simple: well-crafted prompts lead to better
-          outcomes. Instead of spending time experimenting or searching across
-          scattered sources, users can explore ready-to-use prompt bundles
-          created for real-world scenarios. Each prompt is written to be clear,
-          actionable, and easy to adapt.
+          ProomX itself does not create or process AI-generated content.
+          Instead, it focuses on providing structured prompts that guide
+          third-party AI platforms to produce outputs such as text, images,
+          code, or other responses based on user needs. The quality and nature
+          of the output depend entirely on the AI tool being used and how the
+          prompt is applied.
         </p>
 
         <p className="text-muted-foreground mt-2">
-          ProomX is built as an open and accessible resource. There is no
-          sign-up or login system, and no personal data is collected from users.
-          All content on the platform is freely available, and ProomX does not
-          use analytics, tracking technologies, or advertising tools.
+          The goal of ProomX is to make AI usage simpler, faster, and more
+          accessible for students, creators, developers, and general users
+          around the world. The platform is fully free to use and does not
+          require users to create accounts or log in. ProomX is intended as a
+          helpful resource for learning, experimentation, and productivity.
         </p>
 
         <p className="text-muted-foreground mt-2">
-          The platform prioritizes simplicity and focus. Rather than adding
-          unnecessary features, ProomX emphasizes clean organization,
-          straightforward navigation, and a distraction-free experience. Prompt
-          bundles are grouped into clear categories to help users quickly find
-          and reuse prompts that fit their needs.
-        </p>
-
-        <p className="text-muted-foreground mt-2">
-          ProomX continues to evolve as AI tools and use cases grow. New prompt
-          bundles are added over time, reflecting practical workflows and
-          emerging trends in AI usage.
+          This project is fully free and intended for students, creators,
+          developers, and anyone interested in using AI more effectively. ProomX
+          is designed as a practical utility rather than a complex product, with
+          a focus on clarity, usefulness, and ease of use.
         </p>
 
         <p className="text-muted-foreground mt-2">

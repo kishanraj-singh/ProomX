@@ -24,6 +24,7 @@ import {
   Briefcase,
   CircleAlert,
   Code,
+  Compass,
   FileText,
   GlobeLock,
   Images,
@@ -92,6 +93,9 @@ export default function Header() {
                   className="w-full flex flex-col gap-2.5 px-2.5"
                   onClick={() => setMenuSheetOpen(false)}
                 >
+                  <label className="text-muted-foreground text-sm px-3+">
+                    Categories
+                  </label>
                   <Link href="/writing-content">
                     <Button variant="ghost">
                       <FileText />
@@ -125,19 +129,9 @@ export default function Header() {
 
                   <Separator />
 
-                  <Link href="/disclaimer">
+                  <Link href="/about">
                     <Button variant="ghost">
-                      <TriangleAlert /> Disclaimer
-                    </Button>
-                  </Link>
-                  <Link href="/privacy-policy">
-                    <Button variant="ghost">
-                      <GlobeLock /> Privacy Policy
-                    </Button>
-                  </Link>
-                  <Link href="/terms">
-                    <Button variant="ghost">
-                      <ReceiptText /> Terms
+                      <Compass /> Explore
                     </Button>
                   </Link>
                   <Link href="/about">

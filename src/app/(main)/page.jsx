@@ -1,5 +1,6 @@
 import BundleBox from "@/components/main/bundle-box";
 import CTAButton from "@/components/main/cta-button";
+import ShareBar from "@/components/main/share-section";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { firestore } from "@/config/firebase";
@@ -11,12 +12,7 @@ import {
   query,
   where,
 } from "firebase/firestore";
-import {
-  ArrowRight,
-  ArrowUpRightIcon,
-  ChevronRightIcon,
-  HeartHandshake,
-} from "lucide-react";
+import { ChevronRightIcon, HeartHandshake } from "lucide-react";
 import Link from "next/link";
 
 export default async function Home() {
@@ -44,7 +40,7 @@ export default async function Home() {
         </h1>
         <h2 className="max-w-2xl text-[16px] md:text-[18px] text-muted-foreground text-center">
           Discover curated, reusable AI prompt collections for writing, coding,
-          design, marketing, and productivity. Free to use.{" "}
+          design, marketing, and productivity. 100% Free to use.{" "}
           <span className="underline">No login required.</span>
         </h2>
         <CTAButton />
@@ -52,7 +48,7 @@ export default async function Home() {
 
       <section
         id="explore"
-        className="w-full flex flex-col justify-center items-center px-[3%] py-[6%] md:py-[3%]"
+        className="w-full flex flex-col justify-center items-center px-[3%] pt-[6%] md:pt-[1%]"
       >
         <div className="w-full grid gap-5">
           <div className="flex justify-between items-center px-[4%]">
@@ -71,11 +67,13 @@ export default async function Home() {
         </div>
 
         <Link href="/explore">
-          <Button variant="outline" className="w-50 my-8 sm:-mb-0">
+          <Button variant="outline" className="w-50 h-10 my-12">
             Explore All
           </Button>
         </Link>
       </section>
+
+      <ShareBar />
     </main>
   );
 }

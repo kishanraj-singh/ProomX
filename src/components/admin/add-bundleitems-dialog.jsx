@@ -32,15 +32,43 @@ export default function AddBundleItemsDialog({ bundleData }) {
   const [bundleItemTitle, setBundleItemTitle] = useState("");
   const [bundleItemDiscription, setBundleItemDiscription] = useState("");
   const [bundleItemPrompt, setBundleItemPrompt] = useState("");
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
 
   const handleUpload = async () => {
     const toastId = toast.loading("Uploading bundleItem...");
+    let photoURL = null;
     try {
+      //uploading image
+      if (selectedPhoto) {
+        const signRes = await fetch("/api/cloudinary-sign", { method: "POST" });
+        const { timestamp, signature, apiKey, cloudName } =
+          await signRes.json();
+
+        const formData = new FormData();
+        formData.append("file", selectedPhoto);
+        formData.append("api_key", apiKey);
+        formData.append("timestamp", timestamp);
+        formData.append("signature", signature);
+        formData.append("folder", "uploads");
+
+        const uploadRes = await fetch(
+          `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
+          {
+            method: "POST",
+            body: formData,
+          }
+        );
+
+        const data = await uploadRes.json();
+        photoURL = data.secure_url;
+      }
+
       //add bundleItems on firestore
       await addDoc(collection(firestore, "bundleItems/"), {
         title: bundleItemTitle,
         description: bundleItemDiscription,
         prompt: bundleItemPrompt,
+        photoURL: photoURL,
         bundleSlug: bundleData?.slug,
         createdAt: new Date(),
         uploader: auth.currentUser.uid,
@@ -93,6 +121,17 @@ export default function AddBundleItemsDialog({ bundleData }) {
               value={bundleItemPrompt}
               className="max-h-50"
               onChange={(e) => setBundleItemPrompt(e.target.value)}
+            />
+          </div>
+
+          <div className="grid gap-3">
+            <Label htmlFor="file">Choose Photo</Label>
+            <Input
+              id="file"
+              type="file"
+              accept="image/*"
+              onChange={(e) => setSelectedPhoto(e.target.files[0])}
+              className="cursor-pointer"
             />
           </div>
         </div>

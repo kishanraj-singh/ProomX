@@ -25,16 +25,14 @@ export default function PromptView({ copyText }) {
     <div className="flex flex-col items-center gap-5">
       <Card className="w-full p-0 overflow-hidden rounded-md border-0 shadow-none mt-2.5 bg-secondary">
         <div className="flex items-center justify-between border-b border-primary/15 px-4 py-2 text-primary">
-          <p className="text-primary flex items-center gap-2">
-            <Image
-              src="/logo-full.png"
-              width={70}
-              height={28}
-              className="invert dark:invert-0 opacity-60 grayscale"
-              alt="logo"
-              unoptimized
-            />
-          </p>
+          <Image
+            src="/logo-full.png"
+            width={70}
+            height={28}
+            className="invert dark:invert-0 opacity-60 grayscale"
+            alt="logo"
+            unoptimized
+          />
           <Tooltip>
             <TooltipTrigger asChild>
               <Button variant="ghost" onClick={copyToClipboard}>
@@ -46,8 +44,8 @@ export default function PromptView({ copyText }) {
             </TooltipContent>
           </Tooltip>
         </div>
-        <div className="w-full px-4 pb-4 text-muted-foreground">
-          <code className="text-[14px] md:text-[17px] whitespace-pre-wrap">
+        <div className="w-full px-4 pb-4 text-primary/80">
+          <code className="text-[14px] md:text-[16px] whitespace-pre-wrap">
             {copyText}
           </code>
         </div>
